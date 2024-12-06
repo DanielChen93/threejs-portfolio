@@ -24,7 +24,7 @@ export const navLinks = [
 export const clientReviews = [
   {
     id: 1,
-    name: 'Emily Johnson',
+    name: 'James Cooper',
     position: 'Marketing Director at GreenLeaf',
     img: 'assets/review1.png',
     review:
@@ -58,12 +58,13 @@ export const clientReviews = [
 
 export const myProjects = [
   {
-    title: 'IWD - Intelligent Watch Dog',
-    desc: ' IWD is a multi-vehicle tasking system that enables human-machine teaming by allowing operators to assign high-level missions to autonomous vehicles, which execute tasks like waypoint navigation and path-following independently.',
+    title: 'IWD - Intelligent Watch Dog: Multi-Vehicle Tasking System',
+    desc: 'IWD is a cutting-edge multi-vehicle tasking system that facilitates human-machine teaming. It enables operators to assign high-level missions to autonomous vehicles, which independently perform tasks like waypoint navigation, path-following, and area coverage.',
     subdesc:
-      'Powered by Django REST APIs, React, MUI, Leaflet, TypeScript, and Sqlite, supporting mission-critical data management and task automation.',
+      'Powered by Django REST APIs, React, MUI, Leaflet, TypeScript, and SQLite, IWD supports use task automation to enhance efficiency and scalability.',
     texture: '/textures/project/project1.mp4',
     logo: '/assets/project-logo1.png',
+    logoBgColorClassName: 'bg-white-700',
     logoStyle: {
       backgroundColor: '#2A1816',
       border: '0.2px solid #36201D',
@@ -146,6 +147,7 @@ export const myProjects = [
       'Developed with Next.js, Tailwind CSS, PostgreSQL, and Radix UI, emphasizing secure authentication, responsive design, and real-time error monitoring.',
     texture: '/textures/project/project3.mp4',
     logo: '/assets/project-logo3.png',
+    logoBgColorClassName: 'bg-gray-700',
     logoStyle: {
       backgroundColor: '#60f5a1',
       background:
@@ -193,32 +195,22 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 export const workExperiences = [
   {
     id: 1,
-    name: 'Framer',
+    name: 'AOS Group',
     pos: 'Full Stack Developer',
     duration: '2021 - Present',
     title:
-      'Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.',
-    icon: '/assets/framer.svg',
+      'Developed single-page applications using TypeScript, React, and Electron.js, with a focus on user experience and performance. Implemented event-driven RESTful APIs and designed scalable, responsive interfaces. Used PostgreSQL and Prisma for efficient data management and collaborated in an Agile environment.',
+    icon: '/assets/aos.svg',
     animation: 'victory',
   },
   {
     id: 2,
-    name: 'Figma',
-    pos: 'Web Developer',
-    duration: '2020 - 2022',
+    name: 'Sal National',
+    pos: 'Test Engineer',
+    duration: '2020 - 2021',
     title:
-      'Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.',
-    icon: '/assets/figma.svg',
+      'Executed manual functional and performance tests for smart home software, ensuring product quality. Worked closely with developers to identify and resolve bugs, improving reliability. Contributed to Agile workflows with a focus on software enhancements.',
+    icon: '/assets/sal.jpg',
     animation: 'clapping',
-  },
-  {
-    id: 3,
-    name: 'Notion',
-    pos: 'Junior Web Developer',
-    duration: '2019 - 2020',
-    title:
-      'Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.',
-    icon: '/assets/notion.svg',
-    animation: 'salute',
   },
 ];
