@@ -201,7 +201,7 @@ export const workExperiences = [
     title:
       'Developed single-page applications using TypeScript, React, and Electron.js, with a focus on user experience and performance. Implemented event-driven RESTful APIs and designed scalable, responsive interfaces. Used PostgreSQL and Prisma for efficient data management and collaborated in an Agile environment.',
     icon: '/assets/aos.svg',
-    animation: 'victory',
+    animation: 'dancing',
   },
   {
     id: 2,
@@ -211,6 +211,6 @@ export const workExperiences = [
     title:
       'Executed manual functional and performance tests for smart home software, ensuring product quality. Worked closely with developers to identify and resolve bugs, improving reliability. Contributed to Agile workflows with a focus on software enhancements.',
     icon: '/assets/sal.jpg',
-    animation: 'clapping',
+    animation: 'salute',
   },
 ];
