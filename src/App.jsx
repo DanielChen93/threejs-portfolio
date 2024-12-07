@@ -14,7 +14,8 @@ const App = () => {
       <Hero />
       <About />
       <Projects />
-      <Clients />
+      {/* Hide Client for now, await reviews from colleagues */}
+      {/* <Clients /> */}
       <WorkExperience />
       <Contact />
       <Footer />
