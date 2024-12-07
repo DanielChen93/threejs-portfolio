@@ -39,7 +39,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/DanielChen93/threejs-portfolio.git
-cd threejscc-portfolio
+cd threejs-portfolio
 ```
 
 **Installation**
