@@ -25,15 +25,15 @@ export const clientReviews = [
   {
     id: 1,
     name: 'James Cooper',
-    position: 'Marketing Director at GreenLeaf',
+    position: 'Principal Software Engineer at AOS',
     img: 'assets/review1.png',
     review:
       'Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
   },
   {
     id: 2,
-    name: 'Mark Rogers',
-    position: 'Founder of TechGear Shop',
+    name: 'James Gregory',
+    position: 'Robotics Researcher at Boeing Research & Technology',
     img: 'assets/review2.png',
     review:
       'Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
