@@ -1,21 +1,19 @@
-import emailjs from '@emailjs/browser';
 import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
 
 const Contact = () => {
   const formRef = useRef();
-
   const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
-
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
   const handleChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
   };
-  console.log(import.meta.env);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -44,12 +42,8 @@ const Contact = () => {
 
           setTimeout(() => {
             hideAlert(false);
-            setForm({
-              name: '',
-              email: '',
-              message: '',
-            });
-          }, [3000]);
+            setForm({ name: '', email: '', message: '' });
+          }, 3000);
         },
         (error) => {
           setLoading(false);
@@ -67,63 +61,71 @@ const Contact = () => {
   return (
     <section className="c-space my-20" id="contact">
       {alert.show && <Alert {...alert} />}
+      <div className="relative flex items-center justify-center flex-col">
+        {/* Terminal-style container */}
+        <div className="relative bg-black rounded-lg shadow-lg border border-gray-600 w-full mx-auto aspect-[4/3]">
+          {/* Terminal header */}
+          <div className="flex items-center px-4 py-2 bg-gray-800 border-b border-gray-600 rounded-t-lg">
+            <div className="h-3 w-3 rounded-full bg-red-500 mr-2"></div>
+            <div className="h-3 w-3 rounded-full bg-yellow-400 mr-2"></div>
+            <div className="h-3 w-3 rounded-full bg-green-500"></div>
+          </div>
 
-      <div className="relative min-h-screen flex items-center justify-center flex-col">
-        <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
+          {/* Contact form */}
+          <div className="p-10 text-white mx-auto h-full sm:w-2/3 w-full">
+            <h3 className="head-text">Let's talk</h3>
+            <p className="text-lg text-white-600 mt-3">
+              Actively seeking new opportunities! Whether it’s building websites, enhancing platforms, or tackling
+              creative projects, I’m ready to make an impact. Let’s connect!
+            </p>
 
-        <div className="contact-container">
-          <h3 className="head-text">Let's talk</h3>
-          <p className="text-lg text-white-600 mt-3">
-            Actively seeking new opportunities! Whether it’s building websites, enhancing platforms, or tackling
-            creative projects, I’m ready to make an impact. Let’s connect!
-          </p>
+            <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
+              <label className="space-y-3">
+                <span className="field-label">Full Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  className="field-input"
+                  placeholder="Enter your full name"
+                />
+              </label>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
-            <label className="space-y-3">
-              <span className="field-label">Full Name</span>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                required
-                className="field-input"
-                placeholder="Enter your full name"
-              />
-            </label>
+              <label className="space-y-3">
+                <span className="field-label">Email address</span>
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  className="field-input"
+                  placeholder="Enter your email"
+                />
+              </label>
 
-            <label className="space-y-3">
-              <span className="field-label">Email address</span>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                required
-                className="field-input"
-                placeholder="Enter your email"
-              />
-            </label>
+              <label className="space-y-3">
+                <span className="field-label">Your message</span>
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  rows={5}
+                  className="field-input"
+                  placeholder="Hi, I wanna give you a job..."
+                />
+              </label>
 
-            <label className="space-y-3">
-              <span className="field-label">Your message</span>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="field-input"
-                placeholder="Hi, I wanna give you a job..."
-              />
-            </label>
+              <button className="field-btn" type="submit" disabled={loading}>
+                {loading ? 'Sending...' : 'Send Message'}
 
-            <button className="field-btn" type="submit" disabled={loading}>
-              {loading ? 'Sending...' : 'Send Message'}
-
-              <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
-            </button>
-          </form>
+                <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
