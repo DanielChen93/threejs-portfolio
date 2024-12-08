@@ -72,7 +72,7 @@ const Contact = () => {
           </div>
 
           {/* Contact form */}
-          <div className="p-10 text-white mx-auto h-full sm:w-2/3 w-full">
+          <div className="p-10 mx-auto h-full sm:w-2/3 w-full flex flex-col justify-center">
             <h3 className="head-text">Let's talk</h3>
             <p className="text-lg text-white-600 mt-3">
               Actively seeking new opportunities! Whether it’s building websites, enhancing platforms, or tackling
