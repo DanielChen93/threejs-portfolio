@@ -63,7 +63,7 @@ const Contact = () => {
       {alert.show && <Alert {...alert} />}
       <div className="relative flex items-center justify-center flex-col">
         {/* Terminal-style container */}
-        <div className="relative bg-black rounded-lg shadow-lg border border-gray-600 w-full mx-auto aspect-[4/3]">
+        <div className="relative bg-black rounded-lg shadow-lg border border-gray-600 w-full mx-auto">
           {/* Terminal header */}
           <div className="flex items-center px-4 py-2 bg-gray-800 border-b border-gray-600 rounded-t-lg">
             <div className="h-3 w-3 rounded-full bg-red-500 mr-2"></div>
