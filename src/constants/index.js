@@ -26,33 +26,33 @@ export const clientReviews = [
     id: 1,
     name: 'James Cooper',
     position: 'Principal Software Engineer at AOS',
-    img: 'assets/review1.png',
+    img: 'assets/james-copper.jpeg',
     review:
-      'Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
+      'Daniel is an outstanding full-stack developer with expertise in both frontend development using React and backend development with Node.js. He consistently delivers high-quality results, meeting or exceeding expectations. Beyond his technical skills, Daniel has a positive attitude and works seamlessly with team members, fostering a collaborative and productive work environment.',
   },
   {
     id: 2,
     name: 'James Gregory',
     position: 'Robotics Researcher at Boeing Research & Technology',
-    img: 'assets/review2.png',
+    img: 'assets/james-gregory.jpeg',
     review:
-      'Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
+      "It was great working with Daniel on a cutting-edge defense project. His front-end expertise was key to delivering high-quality results for the client. Daniel was reliable, collaborative, and quick to adapt to change requests, often going the extra mile to meet tight deadlines. His dependable contributions were essential to the project's success, and he was a fantastic teammate throughout.",
   },
   {
     id: 3,
-    name: 'John Dohsas',
-    position: 'Project Manager at UrbanTech ',
-    img: 'assets/review3.png',
+    name: 'Chung Sing Leung',
+    position: 'Lead Robotics and Aerospace Engineer at AOS',
+    img: 'assets/chung-leung.png',
     review:
-      'I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.',
+      'Daniel’s ability to address complex challenges with innovative solutions and his attention to detail consistently elevated the quality of our products. He also worked exceptionally well in a team environment, fostering strong collaboration across multiple disciplines.',
   },
   {
     id: 4,
-    name: 'Ether Smith',
-    position: 'CEO of BrightStar Enterprises',
-    img: 'assets/review4.png',
+    name: 'Lily You',
+    position: 'Software Product Manager at Sunny Australia Lighting',
+    img: 'assets/lily.jpeg',
     review:
-      'Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.',
+      'Daniel has shown strong performance in software testing, consistently delivering high-quality results and demonstrating a keen attention to detail. Additionally, Daniel has integrated well into the company culture, building positive relationships with colleagues and embodying the core values of the organization.',
   },
 ];
 
