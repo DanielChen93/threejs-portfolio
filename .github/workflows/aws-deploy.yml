@@ -20,7 +20,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t vite-app .
+          docker build -t threejs-portfolio .
 
       - name: Set up AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -34,15 +34,15 @@ jobs:
 
       - name: Create ECR repository (if not exists)
         run: |
-          aws ecr describe-repositories --repository-name vite-app || aws ecr create-repository --repository-name vite-app --region ap-southeast-2
+          aws ecr describe-repositories --repository-name threejs-portfolio || aws ecr create-repository --repository-name threejs-portfolio --region ap-southeast-2
 
       - name: Tag Docker image for ECR
         run: |
-          docker tag vite-app:latest 686255942583.dkr.ecr.ap-southeast-2.amazonaws.com/vite-app:latest
+          docker tag threejs-portfolio:latest 686255942583.dkr.ecr.ap-southeast-2.amazonaws.com/threejs-portfolio:latest
 
       - name: Push Docker image to ECR
         run: |
-          docker push 686255942583.dkr.ecr.ap-southeast-2.amazonaws.com/vite-app:latest
+          docker push 686255942583.dkr.ecr.ap-southeast-2.amazonaws.com/threejs-portfolio:latest
 
       - name: Deploy to ECS (or Elastic Beanstalk)
         run: |
