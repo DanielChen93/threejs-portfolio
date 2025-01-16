@@ -58,5 +58,5 @@ jobs:
       - name: Deploy to ECS (or Elastic Beanstalk)
         run: |
           # You can use ECS or Elastic Beanstalk to deploy the image. Here is an example for ECS:
-          ecs_service_update_command="aws ecs update-service --cluster threejs-portfolio --service threejs-portfolio-cluster --force-new-deployment --region ap-southeast-2"
+          ecs_service_update_command="aws ecs update-service --cluster threejs-portfolio-cluster --service threejs-fargate-service --force-new-deployment --region ${{ secrets.AWS_REGION }}"
           eval $ecs_service_update_command
