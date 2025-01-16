@@ -30,7 +30,7 @@ jobs:
 
       - name: Authenticate Docker with Amazon ECR
         run: |
-          aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin YOUR_AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com
+          aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 686255942583.dkr.ecr.ap-southeast-2.amazonaws.com
 
       - name: Create ECR repository (if not exists)
         run: |
@@ -38,11 +38,11 @@ jobs:
 
       - name: Tag Docker image for ECR
         run: |
-          docker tag vite-app:latest YOUR_AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/vite-app:latest
+          docker tag vite-app:latest 686255942583.dkr.ecr.ap-southeast-2.amazonaws.com/vite-app:latest
 
       - name: Push Docker image to ECR
         run: |
-          docker push YOUR_AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/vite-app:latest
+          docker push 686255942583.dkr.ecr.ap-southeast-2.amazonaws.com/vite-app:latest
 
       - name: Deploy to ECS (or Elastic Beanstalk)
         run: |
