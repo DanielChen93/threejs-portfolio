@@ -1,0 +1,59 @@
+name: Deploy Dockerized Vite App to AWS ECS
+
+on:
+  push:
+    branches:
+      - main # Trigger deployment on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js (if needed for Vite build, though the Dockerfile already uses Node.js)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      # Step 3: Build the Docker image for the app
+      - name: Build Docker image
+        run: |
+          docker build -t threejs-portfolio .
+
+      # Step 4: Set up AWS credentials using OIDC
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }} # Use the secret for role ARN
+          aws-region: ${{ secrets.AWS_REGION }} # Use the secret for AWS region
+
+      # Step 5: Authenticate Docker with Amazon ECR
+      - name: Authenticate Docker with Amazon ECR
+        run: |
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+
+      # Step 6: Create ECR repository if it doesn't already exist
+      - name: Create ECR repository (if not exists)
+        run: |
+          aws ecr describe-repositories --repository-name threejs-portfolio || aws ecr create-repository --repository-name threejs-portfolio --region ${{ secrets.AWS_REGION }}
+
+      # Step 7: Tag the Docker image with the ECR repository URL
+      - name: Tag Docker image for ECR
+        run: |
+          docker tag threejs-portfolio:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/threejs-portfolio:latest
+
+      # Step 8: Push the Docker image to ECR
+      - name: Push Docker image to ECR
+        run: |
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/threejs-portfolio:latest
+
+      - name: Deploy to ECS (or Elastic Beanstalk)
+        run: |
+          # You can use ECS or Elastic Beanstalk to deploy the image. Here is an example for ECS:
+          ecs_service_update_command="aws ecs update-service --cluster threejs-portfolio --service threejs-portfolio-cluster --force-new-deployment --region ap-southeast-2"
+          eval $ecs_service_update_command
